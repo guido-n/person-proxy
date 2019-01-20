@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/persondummy" name="PersonDummy" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST">
+        <inSequence>
+            <payloadFactory media-type="json">
+                <format>
+					{ "message" : "Hello $1!" }
+				</format>
+                <args>
+                    <arg evaluator="json" expression="$.name"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
