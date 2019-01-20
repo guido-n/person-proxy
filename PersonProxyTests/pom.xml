@@ -9,13 +9,17 @@
     <version>1.0.0</version>
     <name>PersonProxyTests</name>
 
+    <packaging>jar</packaging>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <restassured.version>3.3.0</restassured.version>
-        <junit.version>5.3.0</junit.version>
+        <junit.version>5.3.1</junit.version>
         <hamcrest.version>2.1</hamcrest.version>
+        <log4j.version>2.10.0</log4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
     </properties>
 
     <build>
@@ -36,11 +40,12 @@
 
     <dependencies>
 
+        <!-- Testng -->
+
         <dependency>
-            <groupId>org.junit</groupId>
-            <artifactId>junit-bom</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
-            <type>pom</type>
             <scope>test</scope>
         </dependency>
 
@@ -58,11 +63,27 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Logging -->
+
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <version>2.1.2.RELEASE</version>
-            <scope>test</scope>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
     </dependencies>
@@ -78,7 +99,12 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.19.1</version>
+                        <version>3.0.0-M3</version>
+                        <configuration>
+                            <systemProperties>
+                                <com.hmrc.assessment.dummypersonapi.url>http://172.16.0.64:8280/persondummy</com.hmrc.assessment.dummypersonapi.url>
+                            </systemProperties>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>integration-test</id>
