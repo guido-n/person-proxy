@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+mvn clean package -f ./PersonProxy/pom.xml
+mvn clean package -f ./PersonProxyTests/pom.xml
+mvn clean package -f ./PersonProxyCompositeApplication/PersonProxyCompositeApplication/pom.xml
