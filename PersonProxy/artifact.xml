@@ -2,4 +2,7 @@
     <artifact name="PersonDummy" groupId="com.hmrc.assessment.PersonProxy.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/PersonDummy.xml</file>
     </artifact>
+    <artifact name="PersonProxy" groupId="com.hmrc.assessment.PersonProxy.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/PersonProxy.xml</file>
+    </artifact>
 </artifacts>

@@ -75,4 +75,24 @@ public class PersonProxyPersonDummyIT {
 
     }
 
+    @Test
+    public void shouldTestProxyService() {
+
+        stubFor(post(urlEqualTo("/external/person"))
+                .willReturn(aResponse()
+                        .withHeader("Content-Type", "application/xml")
+                        .withBody("<?xml version=\"1.0\" encoding=\"UTF-8\"?><result>all good</result>")));
+
+        given()
+                .header("Accept", "application/xml")
+        .when()
+                .log().all()
+                .post("http://guido-desktop:8280/services/PersonProxy")
+        .then()
+                .log().all()
+                .statusCode(200)
+                .body("result", equalTo("all good"));
+        
+    }
+
 }
