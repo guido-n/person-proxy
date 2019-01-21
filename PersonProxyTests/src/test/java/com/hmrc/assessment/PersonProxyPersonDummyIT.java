@@ -152,7 +152,7 @@ public class PersonProxyPersonDummyIT {
         .then()
                 .log().all()
                 .statusCode(HTTP_BAD_REQUEST)
-                // I couldn't manage to make the proxy service to add a
+                // I couldn't manage to make the proxy service to add the XML Declaration line correctly
                 .body(containsString("Invalid request"));
 
         verify(
