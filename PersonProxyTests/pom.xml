@@ -110,6 +110,7 @@
                         <configuration>
                             <systemProperties>
                                 <com.hmrc.assessment.dummypersonapi.url>http://172.16.0.64:8280/persondummy</com.hmrc.assessment.dummypersonapi.url>
+                                <com.hmrc.assessment.personproxyservice.url>http://172.16.0.64:8280/services/PersonProxy</com.hmrc.assessment.personproxyservice.url>
                             </systemProperties>
                         </configuration>
                         <executions>
@@ -122,7 +123,6 @@
                             </execution>
                         </executions>
                     </plugin>
-
                 </plugins>
             </build>
         </profile>

@@ -4,6 +4,6 @@
     <surname>Wilson</surname>
     <address>
         <firstline>53 London St</firstline>
-        <!--<postcode>BS15 87L</postcode>-->
+        <secondLine>BS15 87L</secondLine>
     </address>
 </person>
