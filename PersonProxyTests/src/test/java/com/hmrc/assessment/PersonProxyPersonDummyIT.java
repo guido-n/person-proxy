@@ -24,6 +24,14 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 
+/**
+ * Before running this test class, WireMock and WSO2 have to be started as standalone.
+ *
+ * java -jar wiremock-standalone-2.20.0.jar --port 42569 --verbose
+ * wso2ei-6.4.0/bin/integrator.sh --start
+ *
+ * @author Guido Negro
+ */
 public class PersonProxyPersonDummyIT {
 
     private static final Logger LOG = LoggerFactory.getLogger(PersonProxyPersonDummyIT.class);
@@ -144,7 +152,7 @@ public class PersonProxyPersonDummyIT {
         .then()
                 .log().all()
                 .statusCode(HTTP_BAD_REQUEST)
-                // I couldn't manage to make the proxy service to add a 
+                // I couldn't manage to make the proxy service to add a
                 .body(containsString("Invalid request"));
 
         verify(
