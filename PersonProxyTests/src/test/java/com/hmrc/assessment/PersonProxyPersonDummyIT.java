@@ -89,6 +89,8 @@ public class PersonProxyPersonDummyIT {
 
         final String personProxyUrl = System.getProperty(PERSONPROXY_SERVICE__URL_PROPERTY);
 
+        LOG.info("personProxyUrl: {}", personProxyUrl);
+
         stubFor(post(urlEqualTo(WIREMOCK_URL_PATH))
                 .willReturn(aResponse()
                         .withHeader("Content-Type", "application/xml")
@@ -121,6 +123,8 @@ public class PersonProxyPersonDummyIT {
     public void shouldTestProxyServiceWithBadRequest() throws URISyntaxException, IOException {
 
         final String personProxyUrl = System.getProperty(PERSONPROXY_SERVICE__URL_PROPERTY);
+
+        LOG.info("personProxyUrl: {}", personProxyUrl);
 
         stubFor(post(urlEqualTo(WIREMOCK_URL_PATH))
                 .willReturn(aResponse()
