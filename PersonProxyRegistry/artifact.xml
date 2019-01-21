@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="person-request" groupId="com.hmrc.assessment.PersonProxy.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseIntegrator">
+        <item>
+            <file>person-request.xsd</file>
+            <path>/_system/config/xsd</path>
+            <mediaType>application/x-xsd+xml</mediaType>
+        </item>
+    </artifact>
+    <artifact name="person-request-transformation" groupId="com.hmrc.assessment.PersonProxy.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseIntegrator">
+        <item>
+            <file>person-request-transformation.xsl</file>
+            <path>/_system/config/xsl</path>
+            <mediaType>application/xsl+xml</mediaType>
+        </item>
+    </artifact>
+</artifacts>
