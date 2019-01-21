@@ -3,5 +3,5 @@
 set -e
 
 mvn clean install -f ./PersonProxy/pom.xml
-mvn clean install -f ../eclipse-workspace/PersonProxyRegistry/pom.xml
+mvn clean install -f ./PersonProxyRegistry/pom.xml
 mvn clean package -f ./PersonProxyCompositeApplication/PersonProxyCompositeApplication/pom.xml
