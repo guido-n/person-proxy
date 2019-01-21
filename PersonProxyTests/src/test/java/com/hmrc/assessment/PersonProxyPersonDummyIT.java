@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
@@ -114,7 +113,7 @@ public class PersonProxyPersonDummyIT {
         verify(
                 exactly(1),
                 postRequestedFor(urlEqualTo(WIREMOCK_URL_PATH))
-                        .withRequestBody(containing("<postcode>BS15 87L</postcode>"))
+                        .withRequestBody(containing("<address>53 London St, BS15 87L</address>"))
         );
 
     }
@@ -143,7 +142,9 @@ public class PersonProxyPersonDummyIT {
         .when()
                 .post(personProxyUrl)
         .then()
+                .log().all()
                 .statusCode(HTTP_BAD_REQUEST)
+                // I couldn't manage to make the proxy service to add a 
                 .body(containsString("Invalid request"));
 
         verify(

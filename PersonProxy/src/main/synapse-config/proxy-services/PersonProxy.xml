@@ -22,7 +22,10 @@
                 </on-fail>
             </validate>
 
+            <xslt key="conf:xsl/person-request-transformation.xsl"/>
+
             <property name="HTTP_METHOD" scope="axis2" type="STRING" value="POST"/>
+
             <send>
                 <endpoint name="endpoint_urn_uuid_24154e2c-7402-4be8-819a-73fb4a12e248">
                     <address uri="http://localhost:42569/external/person"/>
